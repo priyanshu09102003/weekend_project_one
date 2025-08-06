@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --font-static: 'Static', 'Helvetica Neue', 'Arial Black', system-ui, sans-serif;
+  --font-stage: 'Static', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --font-compressed: 'Static Compressed', 'Helvetica Neue Condensed', 'Arial Narrow', 'Helvetica Condensed', system-ui, sans-serif;
+}
+
+*{
+  user-select: none;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  display: none;
+}
+
+.font-static {
+  font-family: var(--font-static);
+}
+.font-stage{
+  font-family: var(--font-stage);
+}
+
+.font-compressed {
+  font-family: var(--font-compressed);
+  letter-spacing: -0.05em;
+  transform: scaleX(0.85);
+  font-weight: 900;
+}
+
+
+::-webkit-scrollbar{
+  width: 0;
+  display: none;
+}
+
+#page-1-in{
+  position: relative;
+  perspective: 1000px;
+}
+
+#tilt-div{
+  width: fit-content;
+}
+
