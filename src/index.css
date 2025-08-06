@@ -10,10 +10,6 @@
   user-select: none;
 }
 
-::-webkit-scrollbar{
-  width: 0;
-  display: none;
-}
 
 .font-static {
   font-family: var(--font-static);
@@ -30,6 +26,7 @@
 }
 
 
+
 ::-webkit-scrollbar{
   width: 0;
   display: none;
@@ -40,7 +37,19 @@
   perspective: 1000px;
 }
 
+#section-2{
+  position: relative;
+  perspective: 2000px;
+}
+
+
 #tilt-div{
   width: fit-content;
 }
+
+.rotateText{
+  transform-origin: 70% 70%;
+}
+
+
 

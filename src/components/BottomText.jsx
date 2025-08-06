@@ -6,7 +6,7 @@ const BottomText = () => {
     useGSAP(function(){
         gsap.to('#banner' , {
             rotate: 360,
-            duration: 5,
+            duration: 8,
             repeat: -1,
             ease: 'linear'
 

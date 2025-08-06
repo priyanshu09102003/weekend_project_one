@@ -12,8 +12,8 @@ const Page1 = () => {
     
     const mouseMoving = (e) => {
         
-        setXVal((e.clientX - tiltRef.current.getBoundingClientRect().x - tiltRef.current.getBoundingClientRect().width/2)/20);
-        setYVal(-(e.clientY - tiltRef.current.getBoundingClientRect().y - tiltRef.current.getBoundingClientRect().height/2)/10);
+        setXVal((e.clientX - tiltRef.current.getBoundingClientRect().x - tiltRef.current.getBoundingClientRect().width/2)/30);
+        setYVal(-(e.clientY - tiltRef.current.getBoundingClientRect().y - tiltRef.current.getBoundingClientRect().height/2)/25);
     }
     
     useGSAP(function(){
@@ -35,7 +35,7 @@ const Page1 = () => {
     
     return (
         <div 
-            className='h-screen p-7 bg-white' 
+            className='h-screen p-7 bg-white cursor-pointer' 
             onMouseMove={(e) => {
                 mouseMoving(e)
             }}
