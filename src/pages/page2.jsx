@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Page2 = () => {
 
@@ -21,6 +21,61 @@ const Page2 = () => {
            }
         })
     })
+
+      const astronautAnimation = () => {
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    const imagePath = Array.from({length: 300}, (elem, index) => {
+        
+        const paddedIndex = (index + 1).toString().padStart(3, '0');
+        
+        return `/webFrames/unscreen-${paddedIndex}.png`;
+    });
+
+    const images = []
+    
+    
+    imagePath.forEach(function(path, index) {
+        
+        
+        const img = new Image();
+        img.src = path
+        
+        img.onload = () => images[index] = img
+
+    });
+
+    let currentFrame = 0;
+    let lastFrame = 0;
+
+    const loopImagesSequence = (timestamp) => {
+
+        if(images.length == 300 && timestamp - lastFrame>= 1000/30){
+            ctx.clearRect(0 , 0, canvas.width , canvas.height)
+           ctx.drawImage(images[currentFrame], 0 , 0, canvas.width, canvas.height)
+
+        
+           currentFrame = (currentFrame + 1) % 300
+           lastFrame = timestamp
+        }
+
+        requestAnimationFrame(loopImagesSequence);
+
+    }
+
+    requestAnimationFrame(loopImagesSequence);
+
+}
+
+    useEffect(() => {
+        astronautAnimation()
+
+        return () => {
+
+        }
+    })
+
 
 
   return (
@@ -42,9 +97,15 @@ const Page2 = () => {
       <div className='rotateText'>
         <h1 className='text-[18vw] text-black font-compressed text-center leading-[20vw]'>THAT</h1>
       </div>
-      <div className='rotateText'>
+      <div className='rotateText relative'>
+
+            <canvas className='h-[120%] translate-y-14 w-[75%] left-1/2 -translate-x-1/2 absolute z-10 '> 
+
+            </canvas>
+
         <h1 className='text-[20vw] text-black font-compressed text-center leading-[20vw]'>WORKS!</h1>
       </div>
+      
 
 
       <div className='mt-26 flex items-center justify-center scale-66'>
